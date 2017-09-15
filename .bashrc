@@ -1,0 +1,8 @@
+alias ga="git add"
+alias gb="git branch -rv"
+alias gc="git checkout"
+alias gd="git diff --find-renames"
+alias gl="git log --oneline --decorate=short --graph"
+alias gs="git status"
+alias gds="git diff --staged"
+alias gsh="git show HEAD"
