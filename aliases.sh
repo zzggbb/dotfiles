@@ -6,3 +6,5 @@ alias gl="git log --oneline --decorate=short --graph"
 alias gs="git status"
 alias gds="git diff --staged"
 alias gsh="git show HEAD"
+
+alias tree="tree -a -I node_modules|.git"
