@@ -1,9 +1,9 @@
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 "Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/deoplete.nvim'
+"Plug 'Shougo/deoplete.nvim'
 Plug 'shime/vim-livedown'
 call plug#end()
 
@@ -29,6 +29,8 @@ let g:solarized_termcolors=16
 set t_Co=16
 set background=dark
 colorscheme solarized
+
+hi StatusLine ctermfg=10 ctermbg=0 cterm=none
 
 noremap j gj
 noremap k gk

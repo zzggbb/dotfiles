@@ -1,0 +1,35 @@
+# see "man i3status" for documentation.
+general {
+  colors = true
+  interval = 5
+  color_good = '#859900'
+  color_degraded = '#b58900'
+  color_bad = '#dc322f'
+  separator = ""
+}
+
+order += "disk /"
+order += "wireless _first_"
+order += "battery all"
+order += "tztime local"
+
+disk "/" {
+  format = "%avail"
+}
+
+wireless _first_ {
+  format_up = "%quality %essid"
+  format_down = "down"
+}
+
+battery all {
+  hide_seconds = true
+  integer_battery_capacity = true
+  format = "%status %percentage %remaining"
+}
+
+tztime local {
+  format = "%A, %B %d, %Y %l:%M %p"
+}
+
+
