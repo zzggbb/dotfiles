@@ -1,4 +1,4 @@
-.
+<pre>.
 ├── .config
 │   ├── chromium-flags.conf
 │   ├── i3
@@ -11,10 +11,11 @@
 │   │   └── config
 │   └── weston.ini
 ├── install.sh
+├── Makefile
 ├── readme.md
 ├── .tmux.conf
 ├── .xinitrc
 ├── .Xresources
 └── .zshrc
 
-5 directories, 12 files
+5 directories, 13 files</pre>
