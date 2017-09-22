@@ -6,11 +6,11 @@ install() {
   ln -svf $DOTFILES/$1 ~/$1
 }
 
-mkdir -p ~/.config/i3status
+mkdir -p ~/.config/htop
 mkdir -p ~/.config/i3
+mkdir -p ~/.config/i3status
 mkdir -p ~/.config/nvim/autoload
 mkdir -p ~/.config/termite
-mkdir -p ~/.config/fish/completions
 
 curl -#fL $VIM_PLUG > ~/.config/nvim/autoload/plug.vim
 
@@ -24,3 +24,4 @@ install .Xresources
 install .config/weston.ini
 install .config/termite/config
 install .config/chromium-flags.conf
+install .config/htop/htoprc

@@ -1,6 +1,8 @@
 <pre>.
 ├── .config
 │   ├── chromium-flags.conf
+│   ├── htop
+│   │   └── htoprc
 │   ├── i3
 │   │   └── config
 │   ├── i3status
@@ -18,4 +20,4 @@
 ├── .Xresources
 └── .zshrc
 
-5 directories, 13 files</pre>
+6 directories, 14 files</pre>
