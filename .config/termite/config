@@ -1,6 +1,6 @@
 [options]
 clickable_url = true
-font = Iosevka Term 10
+font = Iosevka Term 8
 
 [colors]
 background=	#002b36
