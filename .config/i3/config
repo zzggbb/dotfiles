@@ -1,7 +1,7 @@
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
 set $mod Mod4
 set $font pango:Iosevka Term 10
 
+# set resources
 set_from_resource $yellow color3
 set_from_resource $orange color9
 set_from_resource $red color1
@@ -10,7 +10,6 @@ set_from_resource $violet color13
 set_from_resource $blue color4
 set_from_resource $cyan color6
 set_from_resource $green color2
-
 set_from_resource $base03 color8
 set_from_resource $base02 color0
 set_from_resource $base01 color10
@@ -21,40 +20,38 @@ set_from_resource $base2  color7
 set_from_resource $base3  color15
 
 client.unfocused $base03 $base03 $base03 $base03 $base03
-client.focused $base02 $base02 $base02 $base02 $base02
-client.focused_inactive $base01 $base01 $base01 $base01 $base01
+client.focused $orange $orange $orange $orange $orange
+client.focused_inactive $yellow $yellow $yellow $yellow $yellow
 
 font $font
 new_window pixel 3
 new_float pixel 3
-
-# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# BINDS
+# application bindings
 bindsym $mod+c exec chromium
 bindsym $mod+s exec spotify
 bindsym $mod+Return exec termite
 bindsym $mod+space exec dmenu_run -fn "Iosevka Term-10" -nb "$base03" -nf "$base3" -sb "$yellow"
 bindsym $mod+w kill
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec i3-msg exit
+
+# media key bindiings
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# backlight key bindings
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
-# FOCUS
+# move focus around and between worksapces
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-#bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+d focus child
 bindsym $mod+1 workspace 1
@@ -68,7 +65,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-# MOVEMENT
+# move windows around and between workspaces
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
@@ -84,20 +81,38 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# LAYOUT
+# layout bindings
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+e layout toggle stacking tabbed split
 
+# mode descriptions
+set $mode_system "r: reboot, s: suspend, p: poweroff"
+set $mode_i3 "e: exit to tty, r: reload config"
+
+# mode definitions
+mode $mode_system {
+  bindsym r exec reboot
+  bindsym s exec sleep 1 && systemctl suspend
+  bindsym p exec poweroff
+  bindsym Escape mode "default"
+}
+mode $mode_i3 {
+  bindsym e exec i3-msg exit
+  bindsym r reload
+  bindsym Escape mode "default"
+}
 mode "resize" {
   bindsym h resize shrink width 10 px or 10 ppt
   bindsym j resize grow height 10 px or 10 ppt
   bindsym k resize shrink height 10 px or 10 ppt
   bindsym l resize grow width 10 px or 10 ppt
-  bindsym Return mode "default"
   bindsym Escape mode "default"
 }
 
+# mode bindings
+bindsym $mod+Escape mode $mode_system
+bindsym $mod+i mode $mode_i3
 bindsym $mod+r mode "resize"
 
 bar {
@@ -113,3 +128,6 @@ bar {
   }
   status_command i3status
 }
+
+for_window [class="Matplotlib"] floating enable
+for_window [class="feh"] floating enable
