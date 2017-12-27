@@ -11,6 +11,7 @@ mkdir -p ~/.config/i3
 mkdir -p ~/.config/i3status
 mkdir -p ~/.config/nvim/autoload
 mkdir -p ~/.config/termite
+mkdir -p ~/.config/dunst
 
 curl -#fL $VIM_PLUG > ~/.config/nvim/autoload/plug.vim
 
@@ -25,3 +26,4 @@ install .config/weston.ini
 install .config/termite/config
 install .config/chromium-flags.conf
 install .config/htop/htoprc
+install .config/dunst/dunstrc

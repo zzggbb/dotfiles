@@ -1,6 +1,7 @@
 <pre>.
 ├── .config
-│   ├── chromium-flags.conf
+│   ├── dunst
+│   │   └── dunstrc
 │   ├── htop
 │   │   └── htoprc
 │   ├── i3
@@ -20,4 +21,4 @@
 ├── .Xresources
 └── .zshrc
 
-6 directories, 14 files</pre>
+7 directories, 14 files</pre>
