@@ -8,7 +8,7 @@ zstyle ':completion:*' rehash true
 autoload -Uz compinit
 compinit
 
-PROMPT="%n@%m %~ $ "
+PROMPT="%B%F{white}%n@%m %~ $%f%b "
 
 alias ga="git add"
 alias gb="git branch -rv"
